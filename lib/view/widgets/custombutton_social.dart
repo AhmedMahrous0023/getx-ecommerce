@@ -16,7 +16,7 @@ class CustomButtonSocial extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.grey.shade50
+        color: Colors.grey.shade100
       ),
       child:  ElevatedButton(
               onPressed: onpressed,
