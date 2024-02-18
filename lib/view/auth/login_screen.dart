@@ -1,9 +1,11 @@
 import 'package:ecommerce_getx/constance.dart';
+import 'package:ecommerce_getx/view/auth/register_screen.dart';
+import 'package:ecommerce_getx/view/homescreen.dart';
 import 'package:ecommerce_getx/view/widgets/custom_text.dart';
 import 'package:ecommerce_getx/view/widgets/custom_textformfield.dart';
 import 'package:ecommerce_getx/view/widgets/custombutton.dart';
 import 'package:ecommerce_getx/view/widgets/custombutton_social.dart';
-import 'package:ecommerce_getx/view_model/auth_view_model.dart';
+import 'package:ecommerce_getx/core/view_model/auth_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,10 +35,15 @@ final GlobalKey<FormState>_formKey =GlobalKey<FormState>();
                         text: 'Welcome',
                         fontSize: 30,
                       ),
-                      CustomText(
-                        text: 'Sign Up',
-                        fontSize: 18,
-                        color: primaryColor,
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(RegisterScreen());
+                        },
+                        child: CustomText(
+                          text: 'Sign Up',
+                          fontSize: 18,
+                          color: primaryColor,
+                        ),
                       )
                     ],
                   ),
@@ -121,6 +128,7 @@ final GlobalKey<FormState>_formKey =GlobalKey<FormState>();
                       imageName: 'images/icons/google.jpg',
                       onpressed: () {
                         controller.googleSignInMethod();
+                        Get.offAll(()=>HomeScreen());
                       })
                 ],
               ),
