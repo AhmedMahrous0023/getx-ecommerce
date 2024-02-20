@@ -1,8 +1,11 @@
 import 'package:ecommerce_getx/constance.dart';
+import 'package:ecommerce_getx/core/view_model/cart_view_model.dart';
+import 'package:ecommerce_getx/model/cart_product_model.dart';
 import 'package:ecommerce_getx/model/product_model.dart';
 import 'package:ecommerce_getx/view/widgets/custom_text.dart';
 import 'package:ecommerce_getx/view/widgets/custombutton.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DetailsScreen extends StatelessWidget {
   ProductModel? model;
@@ -110,18 +113,38 @@ class DetailsScreen extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            CustomText(text: 'PRICE',color: Colors.grey,fontSize: 22,),
-                            CustomText(text: 'EGP ${model!.price}',color: primaryColor,fontSize: 18,),
+                            CustomText(
+                              text: 'PRICE',
+                              color: Colors.grey,
+                              fontSize: 22,
+                            ),
+                            CustomText(
+                              text: 'EGP ${model!.price}',
+                              color: primaryColor,
+                              fontSize: 18,
+                            ),
                           ],
                         ),
                         Container(
-                          padding: EdgeInsets.all(20),
-                          width: 180,
-                          height: 100,
-                          child: CustomButton(onPressed: (){},text: ' Add',))
-                                              
-                    
-                    
+                              padding: EdgeInsets.all(20),
+                              width: 180,
+                              height: 100,
+                              child:  GetBuilder<CartViewModel>(
+                          init: CartViewModel(),
+                          builder: (controller) =>
+                                CustomButton(
+                                  onPressed: () {
+                                    controller.addProduct(CartProductModel(
+                                        name: model!.name,
+                                        image: model!.image,
+                                        price: model!.price,
+                                        quantity: 1,
+                                        productId: model!.productId));
+                                  },
+                                  text: ' Add',
+                                ),
+                              )),
+                       
                       ],
                     ),
                   )
