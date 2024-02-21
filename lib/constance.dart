@@ -8,3 +8,4 @@ final String columnImage ='image' ;
 final String columnQuantity ='quantity' ;
 final String columnPrice ='price' ;
 final String columnProductId ='productId' ;
+const CASHED_USER_DATA ='CASHED_USER_DATA ' ;

@@ -1,5 +1,7 @@
 import 'package:ecommerce_getx/core/services/firestore_user.dart';
+import 'package:ecommerce_getx/helper/local_storage_data.dart';
 import 'package:ecommerce_getx/model/user_model.dart';
+import 'package:ecommerce_getx/view/controlview.dart';
 import 'package:ecommerce_getx/view/homescreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,9 @@ class AuthViewModel extends GetxController {
    String? get user =>_user.value?.email ;
 
   String? email, password, name;
+
+  final LocalStorageData localStorageData =Get.find<LocalStorageData>();
+
   @override
   void onInit() {
     // TODO: implement onInit
@@ -48,6 +53,7 @@ class AuthViewModel extends GetxController {
     );
     await _auth.signInWithCredential(credential).then((user) {
       saveUser(user);
+      Get.offAll(ControlView());
     });
   }
 
@@ -64,8 +70,12 @@ class AuthViewModel extends GetxController {
   void signInWithEmailAndPassword() async {
     try {
       await _auth.signInWithEmailAndPassword(
-          email: email!, password: password!);
-          Get.offAll(HomeScreen());
+          email: email!, password: password!).then((value) async{
+            await FireStoreUser().getCurrentUser(value.user!.uid).then((value) {
+              setUser(UserModel.fromJson(value.data() as Map));
+            });
+          });
+          Get.offAll(ControlView());
     } catch (e) {
       print(e.toString());
 
@@ -81,7 +91,7 @@ try {
            
             saveUser(user);
           });
-          Get.offAll(()=>HomeScreen());
+          Get.offAll(()=>ControlView());
     } catch (e) {
       print(e.toString());
 
@@ -91,12 +101,18 @@ try {
   }
 
   void saveUser (UserCredential user)async{
-    await FireStoreUser().addUserToFIreStore(UserModel(
+    UserModel usermodel =UserModel(
               userId: user.user!.uid,
               email: user.user!.email,
               name: name==null?user.user!.displayName:name,
               pic: ''
-            ));
+            );
+    await FireStoreUser().addUserToFIreStore(usermodel);
+    setUser(usermodel);
+  }
+
+  void setUser(UserModel userModel)async{
+   await localStorageData.setUser(userModel);
   }
 }
 
