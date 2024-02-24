@@ -3,6 +3,7 @@ import 'package:ecommerce_getx/core/view_model/cart_view_model.dart';
 import 'package:ecommerce_getx/view/widgets/custom_text.dart';
 import 'package:ecommerce_getx/view/widgets/custombutton.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class CartView extends StatelessWidget {
@@ -17,7 +18,7 @@ class CartView extends StatelessWidget {
           Expanded(
             child: GetBuilder<CartViewModel>(
               init: CartViewModel(),
-               builder: (controller) =>
+               builder: (controller) => controller.cartProductModel.length==0 || controller.cartProductModel.isEmpty?SvgPicture.asset('images/undraw_empty_cart_co35.svg'):
                 Container(
                 child: ListView.separated(
                     itemBuilder: (context, index) => Row(

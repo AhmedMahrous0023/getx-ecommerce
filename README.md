@@ -4,19 +4,7 @@ efficient eCommerce Flutter application powered by GetX state management. Our ap
 
 # Screen shots
 
-![Sign in](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/signin.PNG)
-
-
-![Home Screen](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/home.PNG)
-
-![Product Details](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/productDetails.PNG)
-
-![Cart](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/cart.PNG)
-
-![Cart functionality ](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/cartFunctiontionality.PNG)
-
-![Cart functionality ](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/profile.PNG)
-
+![Sign in](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/signin.PNG)![Home Screen](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/home.PNG)![Product Details](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/productDetails.PNG)![Cart](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/cart.PNG)![Cart functionality ](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/cartFunctiontionality.PNG)![Cart functionality ](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/profile.PNG)
 
 
 # Features
