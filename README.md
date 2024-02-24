@@ -15,6 +15,9 @@ efficient eCommerce Flutter application powered by GetX state management. Our ap
 
 ![Cart functionality ](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/cartFunctiontionality.PNG)
 
+![Cart functionality ](https://github.com/AhmedMahrous0023/getx-ecommerce/blob/master/Screen%20Shots/profile.PNG)
+
+
 
 # Features
 **Category and Product Selection**: Users can explore various categories and products, accessing detailed information effortlessly.
